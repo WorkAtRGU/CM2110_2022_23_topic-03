@@ -32,20 +32,6 @@ sensor = {
   madeObservation = []
 }
 
-# template for the observations action and the result
-observation = {
-    # when the observation action finished - to be set when making observations
-    "resultTime" : "",
-    # the thing we're monitoring - i.e. the door / window
-    "featureOfInterest" : foi
-    # TODO change to something more relevant to what we're recording about the door / window
-    "observedProperty" : "",
-    # what was recorded
-    "hasResult" :  {
-        "value" : "TODO - set when making observations",
-        } 
-}
-
 sense = SenseHat()
 
 # calculating the magnetic field strength
