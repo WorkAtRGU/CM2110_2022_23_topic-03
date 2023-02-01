@@ -1,10 +1,10 @@
-from sense_hat from SenseHat
-import time
+from sense_hat import SenseHat
+import datetime
 import math
 
 # ask the user to provide some useful information about the device
 
-platform _name = input("Please enter the name of the platform hosting the device")
+platform_name = input("Please enter the name of the platform hosting the device")
 platform_location = # TODO ask the user for the platform location
 
 
@@ -27,10 +27,13 @@ foi = {
 
 # TODO Complete the details of the sensor
 sensor = {
-  id = "",
-  type = "RPi Sense HAT based door / window sensor",
-  madeObservation = []
+  "id" = "",
+  "type" = "RPi Sense HAT based door / window sensor",
+  "madeObservation" = []
 }
+
+# add sensor to the platform
+platform["hosts"] = [sensor]
 
 sense = SenseHat()
 
@@ -56,7 +59,7 @@ while True:
   try:
     # TODO get the current value
     # TODO - if the current value is greater than the (baseline + a threashold) and the current_state is "OPEN"
-    # (experiment with values for threshold - start with 5000 and see if thats enough or if it needs to be larger)
+    # (experiment with values for threshold - start with 60 and see if thats enough or if it needs to be larger)
       #  then change current_state to "CLOSED"
     
       # complete the template for the observations action and the result and add to
@@ -78,3 +81,4 @@ while True:
   except KeyboardInterrupt:
     # exist the while loop, but before that, print sensor to see what it looks like
     print(sensor)
+    exit()
