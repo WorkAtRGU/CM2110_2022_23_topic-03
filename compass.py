@@ -1,4 +1,5 @@
 from sense_hat import SenseHat
+import math
 
 sense = SenseHat()
 while True:
@@ -7,6 +8,6 @@ while True:
   y = raw["y"]
   z = raw["z"]
 
-  field_strength = 0 # TODO - calculate the magnetic field
+  field_strength = math.sqrt((x*x + y*y + z*z)) 
 
-  print(x, y, z, field_strngth)
+  print(field_strength)
