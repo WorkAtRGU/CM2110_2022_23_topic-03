@@ -50,7 +50,7 @@ def calc_mag_field():
   
 # get the current reading, assuming the door is open
 baseline = calc_mag_field()
-print(baseline)
+
 # current state
 current_state = "OPEN"
 
@@ -62,13 +62,12 @@ while True:
   try:
       # get the current mag field value
       field_strength = calc_mag_field()
-      print(field_strength)
+
       # if the current value is greater than the (baseline + a threashold) and the current_state is "OPEN"
       # (experiment with values for threshold - start with 5000 and see if thats enough or if it needs to be larger)
       #  then change current_state to "CLOSED"
       if field_strength > (baseline + mag_change_threshold) and current_state == "OPEN":
           current_state = "CLOSED"
-          print(foi_name, current_state)
     
           # complete the template for the observations action and the result and add to
           observation = {
@@ -89,7 +88,6 @@ while True:
       # then change the current_state to "OPEN" and append and observation to sensor["madeObservation"] list
       elif field_strength < (baseline + mag_change_threshold) and current_state == "CLOSED":
          current_state = "OPEN"
-         print(foi_name, current_state)
          # complete the template for the observations action and the result and add to
          observation = {
              # when the observation action finished - to be set when making observations
